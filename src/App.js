@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+import { Albums, Comments, Photos, Posts, Todos, User } from "./component/screen/Resources"
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import Books from "./component/screen/Books";
+import Header from "./component/layout/header"
+import Home from "./component/screen/Home";
+import Movies from "./component/screen/Movies";
+import Tech from "./component/screen/Tech";
+import Webseries from "./component/screen/Webseries";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="tech" element={<Tech />} />
+        <Route path="webseries" element={<Webseries />} />
+        <Route path="movies" element={<Movies />} />
+        <Route path="book" element={<Books />} />
+        <Route path="comments" element={<Comments />} />
+        <Route path="albums" element={<Albums />} />
+        <Route path="photos" element={<Photos />} />
+        <Route path="todos" element={<Todos />} />
+        <Route path="users" element={<User />} />
+        <Route path="posts" element={<Posts />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
 export default App;
